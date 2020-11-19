@@ -1,0 +1,14 @@
+{
+    "xule.autoImports": [
+        "constant-IFRS.xule",
+        "namespace-IFRS.xule",
+        "resources.xule",
+        "base-taxonomy-IFRS-2018.xule",
+        "../../lib/functions.xule",
+        "../../lib/version.xule"
+    ],
+    "xule.namespaces.definitions": [
+        "../../../taxonomy/ifrs/2018/http-xbrl-ifrs-org-taxonomy-2018-03-16-ifrs-full.json",
+        "../../../taxonomy/ifrs/2018/http-fasb-org-srt-2018-01-31.json"
+    ],
+}
