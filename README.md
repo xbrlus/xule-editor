@@ -1,6 +1,6 @@
 # XULE Editor 
 *_A language syntax highlighter and code completion extension for editing [Xule](https://xbrl.us/xule) with Visual Studio Code._*
-<br /><br /><div style="text-align:center; vertical-align:middle"><img width="250" src="https://github.com/xbrlus/xule-editor/raw/master/src/before-xule-editor.png" /> **becomes -->** <img width="250" src="src/after-xule-editor.png" /></div>
+<br /><br /><div style="text-align:center; vertical-align:middle"><img width="600" src="https://github.com/xbrlus/xule-editor/raw/master/src/xule-editor.gif" /></div>
 
 ### Workspace, Settings and Taxonomy Files
 The settings .zip file below includes a Visual Studio Code .code-workspace and settings files corresponding to the reference implementation code (````source``` folder) included in every [Data Quality Committee Rules release (DQC)](https://github.com/DataQualityCommittee/dqc_us_rules/releases).  
