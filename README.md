@@ -3,7 +3,7 @@
 <br /><br /><div style="text-align:center; vertical-align:middle"><img width="600" src="https://github.com/xbrlus/xule-editor/raw/master/src/xule-editor.gif" /></div>
 
 ### Workspace, Settings and Taxonomy Files
-The settings .zip file below includes a Visual Studio Code .code-workspace and settings files corresponding to the reference implementation code (````source``` folder) included in every [Data Quality Committee Rules release (DQC)](https://github.com/DataQualityCommittee/dqc_us_rules/releases).  
+The settings .zip file below includes a Visual Studio Code .code-workspace and settings files corresponding to the reference implementation code (```source``` folder) included in every [Data Quality Committee Rules release (DQC)](https://github.com/DataQualityCommittee/dqc_us_rules/releases).  
 
 The files in the .zip linked below include: 
   1. a **DQC.code-workspace** file defining folders corresponding to the reference implementation 
