@@ -1,5 +1,5 @@
 # XULE Editor 
-*_A language syntax highlighter and code completion extension for editing [Xule](https://xbrl.us/xule) with Visual Studio Code._*
+*_A language syntax highlighter and code completion extension for editing [Xule](https://xbrl.us/xule) with [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=XBRLUS.xule)._*
 <br /><br /><div style="text-align:center; vertical-align:middle"><img width="600" src="https://github.com/xbrlus/xule-editor/raw/master/src/xule-editor.gif" /></div>
 
 ### Workspace, Settings and Taxonomy Files
