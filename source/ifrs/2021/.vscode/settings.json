@@ -1,0 +1,16 @@
+{
+    "xule.autoImports": [
+        "constant-IFRS.xule",
+        "namespace-IFRS.xule",
+        "resources.xule",
+        "base-taxonomy-IFRS-2021.xule",
+        "../../lib/functions.xule",
+        "../../lib/version.xule"
+    ],
+    "xule.namespaces.definitions": [
+        "../../../taxonomy/ifrs/2021/http-xbrl-ifrs-org-taxonomy-2021-03-24-ifrs-full.json",
+        "../../../taxonomy/ifrs/2021/http-fasb-org-srt-2021-01-31.json"
+    ],
+}
+
+

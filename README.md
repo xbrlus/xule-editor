@@ -1,5 +1,5 @@
 # XULE Editor 
-*_A language syntax highlighter and code completion extension for editing [Xule](https://xbrl.us/xule) with [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=XBRLUS.xule)._*
+*_A language syntax highlighter and code completion extension for editing [Xule](https://xbrl.us/xule) with Visual Studio Code._*
 <br /><br /><div style="text-align:center; vertical-align:middle"><img width="600" src="https://github.com/xbrlus/xule-editor/raw/master/src/xule-editor.gif" /></div>
 
 ### Workspace, Settings and Taxonomy Files
@@ -8,7 +8,7 @@ The settings .zip file below includes a Visual Studio Code .code-workspace and s
 The files in the .zip linked below include: 
   1. a **DQC.code-workspace** file defining folders corresponding to the reference implementation 
   1. **settings.json files** that define imports and namespaces required by the Xule Editor in each workspace folder, and 
-  1. US GAAP and IFRS **Taxonomies in .json format** called by the settings.json files. 
+  1. US GAAP (2015 - 2021) and IFRS (2018 - 2021) **Taxonomies in .json format** called by the settings.json files. 
 
 Together, these resources enable highlighting and code completion in the Xule Editor. 
 
@@ -50,7 +50,7 @@ See the [Changelog](CHANGELOG.md).
 
 ## Building and Testing
 
-To compile the extension use: `npm run compile`. This will also rebuild the lexer and the parser from the grammar.
+To compile the extension use: `npm run compile`. This will also rebuild the lexer and the parser from the grammar (nb: if you receive a 'JavaScript heap out of memory' error run the following command to increase the memory limit for the session - Windows: `set NODE_OPTIONS=--max_old_space_size=8192` Linux `export NODE_OPTIONS=--max_old_space_size=4096`)
 To package it: `vsce package`.
 To run the tests: `npm run test`.
 
