@@ -14,7 +14,7 @@ Together, these resources enable highlighting and code completion in the Xule Ed
 
 ### Getting Started (<a href="https://youtu.be/LQtbUBjx0qQ" target="_blank">Watch video</a>)
   1. Install the latest [Xule Editor](https://marketplace.visualstudio.com/items?itemName=XBRLUS.xule).
-  1. Download and **extract all folders and files from the [dqc-xule-settings.zip](dqc-xule-settings.zip?raw=true)** archive into the ```dqc_us_rules``` subdirectory of the release, so that the **```taxonomy``` folder is at the same level as the existing ```source``` folder**.
+  1. Download and **extract all folders and files from the [dqc-xule-settings.zip](https://github.com/xbrlus/xule-editor/raw/master/dqc-xule-settings.zip)** archive into the ```dqc_us_rules``` subdirectory of the release, so that the **```taxonomy``` folder is at the same level as the existing ```source``` folder**.
 <br /><div style="text-align:center"><img src="https://github.com/xbrlus/xule-editor/raw/master/src/taxonomy-folder.png" /></div><br /><br />
 **Proceed with caution** - the extract process will create **_or replace_** existing workspace, settings and taxonomy files in the DQC reference implementation ```source``` folder structure. If you are not sure how to proceed safely, consider manually copying from the files in the .zip into the appropriate settings file.  **XBRL US is not responsible for overwritten settings.**
 
