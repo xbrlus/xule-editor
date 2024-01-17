@@ -1,15 +1,15 @@
 {
     "xule.autoImports": [
         "constant-IFRS.xule",
+        "functions.xule",
         "namespace-IFRS.xule",
+        "version.xule",
         "resources.xule",
-        "base-taxonomy-IFRS-2023.xule",
-        "../../lib/functions.xule",
-        "../../lib/version.xule"
+        "base-taxonomy-IFRS-2023.xule"
     ],
     "xule.namespaces.definitions": [
-        "../../../taxonomy/ifrs/2023/http-xbrl-ifrs-org-taxonomy-2023-03-23-ifrs-full.json",
-        "../../../taxonomy/ifrs/2023/http-fasb-org-srt-2023-01-31.json"
+        "../../../taxonomy/ifrs/2023/https-xbrl-ifrs-org-taxonomy-2023-03-23-ifrs-full.json",
+        "../../../taxonomy/ifrs/2023/http-fasb-org-srt-2023.json"
     ],
 }
 
