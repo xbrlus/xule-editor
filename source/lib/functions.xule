@@ -1,9 +1,9 @@
 /** 
 DQC Rules
- (c) Copyright 2017 - 2022, XBRL US Inc. All rights reserved.
+ (c) Copyright 2017 - 2024, XBRL US Inc. All rights reserved.
  See https://xbrl.us/dqc-license for license information.
  See https://xbrl.us/dqc-patent for patent infringement notice.
- Shared Function Library IFRS & US
+ Shared Function Library IFRS & US & esef
 **/
 
 /** 
@@ -364,6 +364,26 @@ function division_intervals($numerator, $denominator)
 								)
 
 	list(min($list_of_intervals), max($list_of_intervals))
+
+/** 
+ * division_of_intervals
+ * 
+ * This function returns a list of two intervals, the first being the lower bound and the second being the upperbound
+ * of possible values for the result of the divisor. The function uses the provided intervals of the numerator and divisor
+ * 
+ * @param factset - $numerator - Passes interval of the numerator
+ * @param factset - $denominator - Passes interval values as the denominator
+ * @return list - Returns a list of the minimum value and the maximum value of the division.
+**/
+
+function division_of_intervals($numerator_intervals, $denominator_intervals)
+
+	$list_of_intervals = list(for $x in $numerator_intervals
+								for $y in $denominator_intervals
+								$x / $y
+								)
+
+	list(min($list_of_intervals), max($list_of_intervals))
 			
 /** 
  * fact intervals
@@ -391,6 +411,36 @@ function fact_intervals($factItem)
 	
 
 	$fact_intervals = list(($factItem - $fact_interval_factor),($factItem + $fact_interval_factor));
+
+	$fact_intervals
+
+/** 
+ * numerical intervals
+ * 
+ * This function returns a list of two intervals, the first being the lower bound and the second being the upperbound
+ * of possible values for the result of a non fact value. The function uses the decimals of another fact to determien the interval
+ * 
+  *@param numericalValue - $number - Passes a numerical value 
+ * @param fact_base - $factItem - Passes a factset value 
+ * @return list - Returns a list of the minimum value and the maximum value of the fact.
+**/
+
+function numerical_intervals($numericalValue, $factBase)
+
+	$fact_decimals =  if $factBase.decimals == inf
+								10
+							else
+								if $factBase.decimals == none
+									0
+								else
+									$factBase.decimals
+
+	
+
+	$fact_interval_factor = (10.power(-1 * $fact_decimals))/2;
+	
+
+	$fact_intervals = list(($numericalValue - $fact_interval_factor),($numericalValue + $fact_interval_factor));
 
 	$fact_intervals
 
@@ -666,46 +716,103 @@ constant $ALPHA_CODE_LOOKUP = 	dict(
 ** @return numeric - Returns a numerical value.
 **/
 
-function getDimensionSums($concept, $cube, $drs-role)
+function getDimensionSums($concept, $cube, $dimensions_of_sum, $parentConcept, $sum2)
+			/** Identify Non Added dimensions **/
+			$nonAddedDimensions = set('LegalEntityAxis','StatementScenarioAxis')
+
+			/** Get the parent dimensions **/
+
+			/**These have to be removed from any of the tests as we are already in that dimension **/
+			$parentDimensions = sum(set({covered nonils @concept = $parentConcept @cube.drs-role = $cube.drs-role where $fact.dimensions.keys.count == ($dimensions_of_sum - 1)}.dimensions.keys))
 
 			/** Get the dimensions in the cube **/
-			$dimensions = $cube.dimensions
+			
+			$dimensions = sum(set({covered nonils @concept = $concept @cube.drs-role = $cube.drs-role where $fact.dimensions.keys.count == $dimensions_of_sum}.dimensions.keys)) - $parentDimensions
+			if $dimensions == none
+				skip
+			else
+			if $dimensions.length == 1 or $dimensions_of_sum == 1 or (((filter $dimensions.to-set returns $item.name.local-name) intersect $nonAddedDimensions).length > 0 and  $dimensions.length == 2)
+				for $dim in $dimensions.name
+					
+					/** Want to exclude legal entity axis and statement scenerio axis as this is a dimension that is added **/
 
-			for $dimObject in $dimensions
-				$dim = $dimObject.concept.name
-				
-				/** Want to exclude legal entity axis and statement scenerio axis as this is a dimension that is added **/
-
-				if $dim.local-name in list('LegalEntityAxis','StatementScenarioAxis')
-					skip
-				else 
-					$members = navigate dimensions descendants from $dim drs-role $drs-role returns target-name
-
-					$domain = navigate dimensions dimension-domain descendants from $dim drs-role $drs-role returns set target-name
-
-					/** Get a set  of the unique members **/
-					$member_descendants = $members.to-set - $domain;
-
-					/** Generate a list of the member values to sum. It excludes member values that are included as a subtotal, by checking if a members ancestor has a value. If yes, then the value is excluded.**/
-
-					$member_facts = list(for $member in $member_descendants
-										$ancestors_list = (navigate dimensions domain-member ancestors from $member drs-role $drs-role returns set (target-name)) - $domain;
-										if list({nonils @concept = $concept @cube.drs-role = $drs-role @$dim in $ancestors_list}).length > 0
-											skip
-										else 
-											if list({nonils @concept = $concept @cube.drs-role = $drs-role @$dim = $member}).length > 0
-												{nonils @concept = $concept @cube.drs-role = $drs-role @$dim = $member}
-											else
-												{covered-dims nonils @concept = $concept @cube.drs-role = $drs-role @$dim = $member}	
-												);
-
-											/** where  not $fact.dimensions().keys.name.local-name.contains('LegalEntityAxis') **/
-					/** If there are no member facts the rule ends otherwise the subtotal is evaluated **/
-					if 	$member_facts.length == 0 
+					if $dim.local-name in $nonAddedDimensions
 						skip
-					else		
-						/** aggregate the fact values on the axis **/
-						sum($member_facts)
+					else 
+						$members = navigate dimensions descendants from $dim drs-role $cube.drs-role returns target-name
+
+						$domain = navigate dimensions dimension-domain descendants from $dim drs-role $cube.drs-role returns set target-name
+
+						/** Get a set  of the unique members **/
+						$member_descendants = $members.to-set - $domain;
+
+						/** Generate a list of the member values to sum. It excludes member values that are included as a subtotal, by checking if a members ancestor has a value. If yes, then the value is excluded.**/
+
+
+						$valid_facts = list(for $member in $member_descendants.to-list.sort
+											$ancestors_list = (navigate dimensions domain-member ancestors from $member drs-role $cube.drs-role returns set (target-name)) - $domain;
+											if $ancestors_list.length > 0
+												if  list({ nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim in $ancestors_list}).length > 0
+													skip
+												else
+													{nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim = $member  @@period = $sum2.period}
+											else
+												// This was added for those cases whener companies use a two dimensional breakdown of related party by counterpartyNameAxis. This caused
+												// an issue when we added the period of sum2 that then forced alignment of the sum period which excluded CounterpartyNameAxis.
+												if $dim.local-name == $FUNCTION_GET_DIMENSION_RELATED_PARTY_PAIR[1] 
+													and $member.local-name == $FUNCTION_GET_DIMENSION_RELATED_PARTY_PAIR[2]  
+													and missing([nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim = $member @@period = $sum2.period])
+													{nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim = $member @$COUNTERPARTY_DIMENSION @@period = $sum2.period}
+												else
+													{nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim = $member @@period = $sum2.period});
+
+												/** where  not $fact.dimensions().keys.name.local-name.contains('LegalEntityAxis') **/
+						/** If there are no member facts the rule ends otherwise the subtotal is evaluated **/
+						if 	$valid_facts.length == 0 
+							skip
+						else		
+							/** aggregate the fact values on the axis **/
+							sum($valid_facts)
+			else
+				
+				/** Handles case where we have 2 dimensions in the financial statements **/
+
+				$dimensionList = $dimensions.to-list
+				if $dimensionList.length == 0
+					skip
+				else
+				$dim = $dimensionList[1].name
+				$dim2 = $dimensionList[2].name
+					
+				$members = navigate dimensions descendants from $dim drs-role $cube.drs-role returns target-name
+				$members2 = navigate dimensions descendants from $dim2 drs-role $cube.drs-role returns target-name
+
+				$domain = navigate dimensions dimension-domain descendants from $dim drs-role $cube.drs-role returns set target-name
+				$domain2 = navigate dimensions dimension-domain descendants from $dim2 drs-role $cube.drs-role returns set target-name
+
+				/** Get a set  of the unique members **/
+				$member_descendants = $members.to-set - $domain;
+				$member_descendants2 = $members2.to-set - $domain2;
+
+				/** Generate a list of the member values to sum. It excludes member values that are included as a subtotal, by checking if a members ancestor has a value. If yes, then the value is excluded.**/
+
+				$valid_facts = list(for $member in $member_descendants.to-list.sort
+										$ancestors_list = (navigate dimensions domain-member ancestors from $member drs-role $cube.drs-role returns set (target-name)) - $domain;
+										for $member2 in $member_descendants2.to-list.sort
+											$ancestors_list2 = (navigate dimensions domain-member ancestors from $member2 drs-role $cube.drs-role returns set (target-name)) - $domain2;
+											if ($ancestors_list.length > 0 or $ancestors_list2.length > 0) and list([nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim in $ancestors_list @$dim2 = $ancestors_list2]).length > 0
+												skip
+											else
+												[nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim = $member @$dim2 = $member2 @@period = $sum2.period]
+									);
+
+										/** where  not $fact.dimensions().keys.name.local-name.contains('LegalEntityAxis') **/
+				/** If there are no member facts the rule ends otherwise the subtotal is evaluated **/
+				if 	$valid_facts.length == 0 
+					skip
+				else		
+					/** aggregate the fact values on the axis **/
+					sum($valid_facts)
 
 /**
 ** getDimensionNames
@@ -714,43 +821,108 @@ function getDimensionSums($concept, $cube, $drs-role)
 **
 ** @param concept - The concept associated with the fact that is to be summed acorss a given dmension.
 ** @param cube object - The cube objects  whose dimensions are aggregated  over.
-** @param role uri - The drs role uri that defines the members that will be summed
-** @return numeric - Returns a numerical value.
+** @param dimensions_of_sum - integer for how many dimensions
+** @param parentConcept - qname of the parent for the calc
+** @return list - Returns a numerical value.
 **/
 
-function getDimensionNames($concept, $cube, $drs-role)
+function getDimensionNames($concept, $cube, $dimensions_of_sum, $sum2)
+			/** Identify Non Added dimensions **/
+			$nonAddedDimensions = set('LegalEntityAxis','StatementScenarioAxis')
+
+			/** Get the parent dimensions **/
+
+			/**These have to be removed from any of the tests as we are already in that dimension **/
+			$parentDimensions = sum(set({covered nonils @concept = $sum2.name @cube.drs-role = $cube.drs-role  where $fact.dimensions.keys.count == ($dimensions_of_sum - 1)}.dimensions.keys))
 
 			/** Get the dimensions in the cube **/
-			$dimensions = $cube.dimensions
+			
+			$dimensions = sum(set({covered nonils @concept = $concept @cube.drs-role = $cube.drs-role where $fact.dimensions.keys.count == $dimensions_of_sum}.dimensions.keys)) - $parentDimensions
+			if $dimensions == none
+				skip
+			else
+			if $dimensions.length == 1 or $dimensions_of_sum == 1 or (((filter $dimensions.to-set returns $item.name.local-name) intersect $nonAddedDimensions).length > 0 and  $dimensions.length == 2)
+				for $dim in $dimensions.name
+					
+					/** Want to exclude legal entity axis and statement scenerio axis as this is a dimension that is added **/
 
-			for $dimObject in $dimensions
-				$dim = $dimObject.concept.name
+					if $dim.local-name in $nonAddedDimensions
+						skip
+					else 
+						$members = navigate dimensions descendants from $dim drs-role $cube.drs-role returns target-name
 
-				/** Want to exclude legal entity axis as a dimension that is added **/
+						$domain = navigate dimensions dimension-domain descendants from $dim drs-role $cube.drs-role returns set target-name
 
-				if $dim.local-name in list('LegalEntityAxis','StatementScenarioAxis')
+						/** Get a set  of the unique members **/
+						$member_descendants = $members.to-set - $domain;
+
+						/** Generate a list of the member values to sum. It excludes member values that are included as a subtotal, by checking if a members ancestor has a value. If yes, then the value is excluded.**/
+
+
+						$valid_facts = list(for $member in $member_descendants.to-list.sort
+											$ancestors_list = (navigate dimensions domain-member ancestors from $member drs-role $cube.drs-role returns set (target-name)) - $domain;
+											if $ancestors_list.length > 0
+												if  list({ nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim in $ancestors_list }).length > 0
+													skip
+												else
+													{nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim = $member @@period = $sum2.period}
+											else
+												// This was added for those cases whener companies use a two dimensional breakdown of related party by counterpartyNameAxis. This caused
+												// an issue when we added the period of sum2 that then forced alignment of the sum period which excluded CounterpartyNameAxis.
+												if $dim.local-name == $FUNCTION_GET_DIMENSION_RELATED_PARTY_PAIR[1] 
+													and $member.local-name == $FUNCTION_GET_DIMENSION_RELATED_PARTY_PAIR[2] 
+													and missing([nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim = $member @@period = $sum2.period])
+													{nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim = $member @$COUNTERPARTY_DIMENSION @@period = $sum2.period}
+												else
+													{nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim = $member @@period = $sum2.period});
+
+												/** where  not $fact.dimensions().keys.name.local-name.contains('LegalEntityAxis') **/
+						/** If there are no member facts the rule ends otherwise the subtotal is evaluated **/
+						if 	$valid_facts.length == 0 
+							skip
+						else		
+							/** aggregate the fact values on the axis **/
+							list($dim.local-name,sum($valid_facts),$valid_facts)
+			else
+				
+				/** Handles case where we have 2 dimensions in the financial statements **/
+
+				$dimensionList = $dimensions.to-list
+				if $dimensionList.length == 0
 					skip
-				else 
-				$members = navigate dimensions descendants from $dim drs-role $drs-role returns target-name
+				else
+				$dim = $dimensionList[1].name
+				$dim2 = $dimensionList[2].name
+					
+				$members = navigate dimensions descendants from $dim drs-role $cube.drs-role returns target-name
+				$members2 = navigate dimensions descendants from $dim2 drs-role $cube.drs-role returns target-name
 
-				$domain = navigate dimensions dimension-domain descendants from $dim drs-role $drs-role returns set target-name
+				$domain = navigate dimensions dimension-domain descendants from $dim drs-role $cube.drs-role returns set target-name
+				$domain2 = navigate dimensions dimension-domain descendants from $dim2 drs-role $cube.drs-role returns set target-name
 
 				/** Get a set  of the unique members **/
 				$member_descendants = $members.to-set - $domain;
+				$member_descendants2 = $members2.to-set - $domain2;
 
-				/** Generate a list of the member values to sum. It excludes member values that are included as a subtotal, by checking if a members ancestor has a value. If yes, then the value is excluded. **/
-				$member_facts = list(for $member in $member_descendants
-									$ancestors_list = (navigate dimensions domain-member ancestors from $member drs-role $drs-role returns set (target-name)) - $domain;
-									if list({nonils @concept = $concept @cube.drs-role = $drs-role @$dim in $ancestors_list}).length > 0
-										skip
-									else 
-										{nonils @concept = $concept @cube.drs-role = $drs-role @$dim = $member});
+				/** Generate a list of the member values to sum. It excludes member values that are included as a subtotal, by checking if a members ancestor has a value. If yes, then the value is excluded.**/
+
+				$valid_facts = list(for $member in $member_descendants.to-list.sort
+										$ancestors_list = (navigate dimensions domain-member ancestors from $member drs-role $cube.drs-role returns set (target-name)) - $domain;
+										for $member2 in $member_descendants2.to-list.sort
+											$ancestors_list2 = (navigate dimensions domain-member ancestors from $member2 drs-role $cube.drs-role returns set (target-name)) - $domain2;
+											if ($ancestors_list.length > 0 or $ancestors_list2.length > 0) and list([nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim in $ancestors_list @$dim2 = $ancestors_list2 ]).length > 0
+												skip
+											else
+												[nonils @concept = $concept @cube.drs-role = $cube.drs-role @$dim = $member @$dim2 = $member2 @@period = $sum2.period]
+									);
+
+										/** where  not $fact.dimensions().keys.name.local-name.contains('LegalEntityAxis') **/
 				/** If there are no member facts the rule ends otherwise the subtotal is evaluated **/
-				if 	$member_facts.length == 0 
+				if 	$valid_facts.length == 0 
 					skip
 				else		
 					/** aggregate the fact values on the axis **/
-					list($dim.local-name,sum($member_facts),$member_facts)
+					list($dim.local-name,sum($valid_facts),$valid_facts)
 
 /** 
  * most_frequent
@@ -771,7 +943,8 @@ function most_frequent($list_of_items)
             $index[$max_occurence]
 
 /**
- * 
+ * tolerance_for_decimals_sign_flip
+ *
  * @param factset - $left - Passes a factset value to compare to a second parameter called $right
  * @param factset - $right - Passes a factset value to compare to the first parameter called $left
  * @param integer - $decimal_tolerance_factor - Integer value that defines how different the values can be
@@ -790,3 +963,50 @@ if (abs(round($left,$tolerance1) - round($right,$tolerance1)*$weight) > $toleran
 	true
 else 
 	false 
+
+
+function calculationExplananation($addendComponents, $cube, $concept_item, $fs_decimals, $sum2)
+								sum(list(for $k in $addendComponents
+													$targetElement = $k[3];
+													
+													$DefaultMessage =  if exists({nonils @concept = $targetElement @cube.drs-role = $cube.drs-role @@period=$sum2.period})
+																			"" 
+																		else 
+																			$DimStringList = list(first-value(getDimensionNames($targetElement , $cube, 1, $sum2), getDimensionNames($targetElement , $cube, 2, $sum2)))
+																			$DimString = filter $DimStringList returns $item[1].string + " Dim Facts: " + $item[3].join(' + ');
+																			$DimString2 = $DimString.join(' | ');
+																			" (" + $DimString2 + ")"
+													
+													$factAmt = $k[4]
+														
+													$factDecimals = $k[5]
+													$weight =  if $k[2] == 1
+																		"+"
+																else
+																		"-";
+													$strLength = $targetElement.local-name.string.length;
+													$pad = sum(list(for $x in range(120 - $strLength - $factAmt.length - $DefaultMessage.length)
+																					" " 
+																					)
+																			);
+											"" + $weight + "  \t" + $targetElement.local-name.string + $DefaultMessage + $pad + $factAmt  +  (if $factDecimals < $fs_decimals " (Inconsistent decimals: " +  $factDecimals.string + " )" else skip)  + "\n"
+													)
+									)
+/**
+ * duration_contained 
+ *
+ * @param duration - $smallDate - Passes a duration to check if it is in the larger duration
+ * @param duration - $largeDate- Passes a duration to check if a smaller duration is contained within.
+ 
+ * @return boolean - Returns true if the one duration is contained within another duration.
+ *
+**/
+function duration_contained($smallDate,$largeDate)
+		
+		if $smallDate.start >= $largeDate.start and $smallDate.end <= $largeDate.end
+			if $smallDate.start == $largeDate.start and $smallDate.end == $largeDate.end
+				false
+			else
+				true
+		else
+			false
