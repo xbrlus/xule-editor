@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0149/2026": [
+        {
+            "localName": "Dqc_0149",
+            "type": "Concept",
+            "label": "DQC.US.0149 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0149_UseOfNoncurrentAssets",
+            "type": "Concept",
+            "label": "DQC.US.0149.Use of Noncurrent Assets [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

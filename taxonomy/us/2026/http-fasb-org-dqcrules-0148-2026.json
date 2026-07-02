@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0148/2026": [
+        {
+            "localName": "Dqc_0148_OCIItemsInIncomeAndIncomeInOCI",
+            "type": "Concept",
+            "label": "DQC.US.0148.OCI Items in Income and Income in OCI [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0148",
+            "type": "Concept",
+            "label": "DQC.US.0148 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

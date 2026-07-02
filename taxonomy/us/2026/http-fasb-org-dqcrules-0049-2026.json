@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0049/2026": [
+        {
+            "localName": "Dqc_0049_SingleCalcTree",
+            "type": "Concept",
+            "label": "DQC.US.0049.Single Calculation Tree [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0049",
+            "type": "Concept",
+            "label": "DQC.US.0049 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0116/2026": [
+        {
+            "localName": "Dqc_0116",
+            "type": "Concept",
+            "label": "DQC.US.0116 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0116_LineItemsRequiringTheAssetAcquisitionAxis",
+            "type": "Concept",
+            "label": "DQC.US.0116.Line Items Requiring the Asset Acquisition Axis [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0147/2026": [
+        {
+            "localName": "Dqc_0147",
+            "type": "Concept",
+            "label": "DQC.US.0147 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0147_IncorrectSignOfEliminationItems",
+            "type": "Concept",
+            "label": "DQC.US.0147.Incorrect Sign of Elimination Items [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0139/2026": [
+        {
+            "localName": "Dqc_0139",
+            "type": "Concept",
+            "label": "DQC.US.0139 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0139_BankRatiosScaleIssues",
+            "type": "Concept",
+            "label": "DQC.US.0139.Bank Ratios - Scale Issues [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

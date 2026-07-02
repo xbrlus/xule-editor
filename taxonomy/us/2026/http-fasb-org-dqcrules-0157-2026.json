@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0157/2026": [
+        {
+            "localName": "Dqc_0157_BankMeasuresLessThanOnePercent",
+            "type": "Concept",
+            "label": "DQC.US.0157.Bank Measures Less than One Percent [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0157",
+            "type": "Concept",
+            "label": "DQC.US.0157 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

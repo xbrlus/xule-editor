@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0131/2026": [
+        {
+            "localName": "Dqc_0131_LeaseAllocationInBalanceSheet",
+            "type": "Concept",
+            "label": "DQC.US.0131.Lease Allocation in Balance Sheet [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0131",
+            "type": "Concept",
+            "label": "DQC.US.0131 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

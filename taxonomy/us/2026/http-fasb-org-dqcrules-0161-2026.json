@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0161/2026": [
+        {
+            "localName": "Dqc_0161_SingleMemberDisaggregation",
+            "type": "Concept",
+            "label": "DQC.US.0161.Single Member Disaggregation [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0161",
+            "type": "Concept",
+            "label": "DQC.US.0161 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

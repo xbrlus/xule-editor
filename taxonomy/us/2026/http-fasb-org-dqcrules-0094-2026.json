@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0094/2026": [
+        {
+            "localName": "Dqc_0094",
+            "type": "Concept",
+            "label": "DQC.US.0094 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0094_USMaturitySchedules",
+            "type": "Concept",
+            "label": "DQC.US.0094.US Maturity Schedules [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

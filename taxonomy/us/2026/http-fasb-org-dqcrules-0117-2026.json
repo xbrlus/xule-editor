@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0117/2026": [
+        {
+            "localName": "Dqc_0117_FinancialStatementTablesDimensionalCrossCheck",
+            "type": "Concept",
+            "label": "DQC.US.0117.Financial Statement Tables Dimensional Cross Check [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0117",
+            "type": "Concept",
+            "label": "DQC.US.0117 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

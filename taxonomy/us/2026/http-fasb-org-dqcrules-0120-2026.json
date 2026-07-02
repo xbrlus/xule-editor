@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0120/2026": [
+        {
+            "localName": "Dqc_0120",
+            "type": "Concept",
+            "label": "DQC.US.0120 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0120_IncorrectLineItemReference",
+            "type": "Concept",
+            "label": "DQC.US.0120.Incorrect Line Item Reference [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

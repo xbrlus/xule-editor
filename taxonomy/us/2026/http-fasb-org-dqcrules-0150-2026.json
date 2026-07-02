@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0150/2026": [
+        {
+            "localName": "Dqc_0150",
+            "type": "Concept",
+            "label": "DQC.US.0150 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0150_SegmentReportingInconsistencies",
+            "type": "Concept",
+            "label": "DQC.US.0150.Segment Reporting Inconsistencies [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

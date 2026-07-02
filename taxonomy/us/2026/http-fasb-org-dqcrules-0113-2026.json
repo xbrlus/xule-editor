@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0113/2026": [
+        {
+            "localName": "Dqc_0113",
+            "type": "Concept",
+            "label": "DQC.US.0113 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0113_GrossAcquisitionLessThanNetAcquisition",
+            "type": "Concept",
+            "label": "DQC.US.0113.Gross Acquisition Less Than Net Acquisition [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

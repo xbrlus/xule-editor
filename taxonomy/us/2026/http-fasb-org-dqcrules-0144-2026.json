@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0144/2026": [
+        {
+            "localName": "Dqc_0144_NoBalanceAttributeInFinancialStatements",
+            "type": "Concept",
+            "label": "DQC.US.0144.No Balance Attribute in Financial Statements [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0144",
+            "type": "Concept",
+            "label": "DQC.US.0144 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

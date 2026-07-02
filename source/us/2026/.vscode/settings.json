@@ -1,0 +1,44 @@
+{
+    "xule.autoImports": [
+        "constant.xule",
+        "functions.xule",
+        "namespace.xule",
+        "version.xule",
+        "resources.xule",
+        "base-taxonomy-2026.xule",
+        "base-taxonomy-2026-entire.xule",
+        "constant-us-gaap.xule"
+    ],
+    "xule.namespaces.definitions": [
+        "../../../taxonomy/us/2026/http-fasb-org-us-gaap-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-us-gaap-ebp-2026.json",
+        "../../../taxonomy/us/2026/http-xbrl-sec-gov-dei-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-srt-2026.json",
+        "../../../taxonomy/us/2026/http-xbrl-sec-gov-country-2026.json",
+        "../../../taxonomy/us/2026/http-xbrl-sec-gov-currency-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-us-types-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-srt-types-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-2026.json",
+        "../../../taxonomy/us/2026/http-xbrl-sec-gov-ecd-2026.json",
+        "../../../taxonomy/us/2026/http-www-xbrl-org-dtr-type-2024-01-31.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0001-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0004-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0005-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0006-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0008-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0009-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0015-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0033-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0036-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0041-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0043-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0044-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0048-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0060-2026.json",
+        "../../../taxonomy/us/2026/http-fasb-org-dqcrules-0079-2026.json"
+    ],
+    "copilot.chat.contextFiles": [
+        "/Users/campbellpryde/Documents/GitHub/xule/docs/XULE Language Syntax V1.2.1.md"
+    ],
+    "copilot.chat.welcomeMessage": "XULE development workspace - refer to XULE Language Syntax V1.2.1.md for syntax reference"
+}

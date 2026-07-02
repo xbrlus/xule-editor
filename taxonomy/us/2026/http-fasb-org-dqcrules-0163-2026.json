@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0163/2026": [
+        {
+            "localName": "Dqc_0163_SegmentExpenditureAdditionToLongLivedAssets",
+            "type": "Concept",
+            "label": "DQC.US.0163.Segment Expenditure Addition To Long Lived Assets [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0163",
+            "type": "Concept",
+            "label": "DQC.US.0163 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

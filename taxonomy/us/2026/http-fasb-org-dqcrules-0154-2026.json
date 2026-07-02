@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0154/2026": [
+        {
+            "localName": "Dqc_0154",
+            "type": "Concept",
+            "label": "DQC.US.0154 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0154_TaxReconciliationItems",
+            "type": "Concept",
+            "label": "DQC.US.0154.Tax Reconciliation Items [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

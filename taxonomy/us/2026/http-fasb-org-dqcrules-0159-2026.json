@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0159/2026": [
+        {
+            "localName": "Dqc_0159_FinancialStatementAbstractConcepts",
+            "type": "Concept",
+            "label": "DQC.US.0159.Financial Statement Abstract Concepts [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0159",
+            "type": "Concept",
+            "label": "DQC.US.0159 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

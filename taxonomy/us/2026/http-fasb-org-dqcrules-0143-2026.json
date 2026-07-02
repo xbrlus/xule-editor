@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0143/2026": [
+        {
+            "localName": "Dqc_0143",
+            "type": "Concept",
+            "label": "DQC.US.0143 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0143_DerivativePositionExtensibleEnumeration",
+            "type": "Concept",
+            "label": "DQC.US.0143.Derivative Position Extensible Enumeration [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

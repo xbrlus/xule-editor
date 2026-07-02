@@ -1,6 +1,10 @@
 {
 	"folders": [
 		{
+			"path": "source/us/2026",
+			"name": "US-2026"
+		},
+		{
 			"path": "source/us/2025",
 			"name": "US-2025"
 		},
@@ -9,12 +13,8 @@
 			"name": "US-2024"
 		},
 		{
-			"path": "source/us/2023",
-			"name": "US-2023"
-		},
-		{
-			"path": "source/us/2022",
-			"name": "US-2022"
+			"path": "source/ifrs/2025",
+			"name": "ifrs-2025"
 		},
 		{
 			"path": "source/ifrs/2024",
@@ -25,9 +25,9 @@
 			"name": "ifrs-2023"
 		},
 		{
-			"path": "source/ifrs/2022",
-			"name": "ifrs-2022"
-		},
+			"path": "source/esef/esef-2025",
+			"name": "esef-2025"
+		
 		{
 			"path": "source/esef/esef-2024",
 			"name": "esef-2024"

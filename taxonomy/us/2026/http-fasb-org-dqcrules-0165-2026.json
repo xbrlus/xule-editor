@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0165/2026": [
+        {
+            "localName": "Dqc_0165_UsefulLifeOfLeaseholdImprovements",
+            "type": "Concept",
+            "label": "DQC.US.0165.Useful Life of Leasehold Improvements [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0165",
+            "type": "Concept",
+            "label": "DQC.US.0165 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

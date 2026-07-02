@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0122/2026": [
+        {
+            "localName": "Dqc_0122",
+            "type": "Concept",
+            "label": "DQC.US.0122 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0122_ComponentsOfEquityOnTheBalanceSheet",
+            "type": "Concept",
+            "label": "DQC.US.0122.Components of Equity on the Balance Sheet [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0125/2026": [
+        {
+            "localName": "Dqc_00125_LeaseCostCannotBeNegative",
+            "type": "Concept",
+            "label": "DQC.US.0125.Lease Cost Cannot be Negative [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0125",
+            "type": "Concept",
+            "label": "DQC.US.0125 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

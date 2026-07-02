@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0153/2026": [
+        {
+            "localName": "Dqc_0153_FinancialStatementTablePlacement",
+            "type": "Concept",
+            "label": "DQC.US.0153.Financial Statement Table Placement [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0153",
+            "type": "Concept",
+            "label": "DQC.US.0153 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

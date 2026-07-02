@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0114/2026": [
+        {
+            "localName": "Dqc_0114_AssetsAcquiredNetOfGoodwill",
+            "type": "Concept",
+            "label": "DQC.US.0114.Assets Acquired Net Of Goodwill [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0114",
+            "type": "Concept",
+            "label": "DQC.US.0114 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

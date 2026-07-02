@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0156/2026": [
+        {
+            "localName": "Dqc_0156_BasicAndDilutedExtensionElements",
+            "type": "Concept",
+            "label": "DQC.US.0156.Basic And Diluted Extension Elements [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0156",
+            "type": "Concept",
+            "label": "DQC.US.0156 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

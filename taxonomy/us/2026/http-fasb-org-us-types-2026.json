@@ -1,0 +1,119 @@
+{
+    "http://fasb.org/us-types/2026": [
+        {
+            "localName": "surchargeMethodGSIB",
+            "type": "Type",
+            "label": "surchargeMethodGSIB"
+        },
+        {
+            "localName": "accruedInterestWriteOffMethodItemType",
+            "type": "Type",
+            "label": "accruedInterestWriteOffMethodItemType"
+        },
+        {
+            "localName": "threeDigitItemType",
+            "type": "Type",
+            "label": "threeDigitItemType"
+        },
+        {
+            "localName": "includedExcludedItemType",
+            "type": "Type",
+            "label": "includedExcludedItemType"
+        },
+        {
+            "localName": "giltiPolicyType",
+            "type": "Type",
+            "label": "giltiPolicyType"
+        },
+        {
+            "localName": "fundingImprovementAndRehabilitationPlanItemType",
+            "type": "Type",
+            "label": "fundingImprovementAndRehabilitationPlanItemType"
+        },
+        {
+            "localName": "interestRateItemType",
+            "type": "Type",
+            "label": "interestRateItemType"
+        },
+        {
+            "localName": "distributionsReceivedApproach",
+            "type": "Type",
+            "label": "distributionsReceivedApproach"
+        },
+        {
+            "localName": "zoneStatusItemType",
+            "type": "Type",
+            "label": "zoneStatusItemType"
+        },
+        {
+            "localName": "surchargeItemType",
+            "type": "Type",
+            "label": "surchargeItemType"
+        },
+        {
+            "localName": "fundedStatusItemType",
+            "type": "Type",
+            "label": "fundedStatusItemType"
+        },
+        {
+            "localName": "costBearerItemType",
+            "type": "Type",
+            "label": "costBearerItemType"
+        },
+        {
+            "localName": "MalpracticeInsurance-OccurrenceOrClaims-madeItemType",
+            "type": "Type",
+            "label": "MalpracticeInsurance-OccurrenceOrClaims-madeItemType"
+        },
+        {
+            "localName": "financialDesignationType",
+            "type": "Type",
+            "label": "financialDesignationType"
+        },
+        {
+            "localName": "capitalizationPolicyType",
+            "type": "Type",
+            "label": "capitalizationPolicyType"
+        },
+        {
+            "localName": "investmentPledgedItemType",
+            "type": "Type",
+            "label": "investmentPledgedItemType"
+        },
+        {
+            "localName": "authorizedUnlimitedItemType",
+            "type": "Type",
+            "label": "authorizedUnlimitedItemType"
+        },
+        {
+            "localName": "controlOfRightsItemType",
+            "type": "Type",
+            "label": "controlOfRightsItemType"
+        },
+        {
+            "localName": "combinedComponentType",
+            "type": "Type",
+            "label": "combinedComponentType"
+        },
+        {
+            "localName": "nineDigitItemType",
+            "type": "Type",
+            "label": "nineDigitItemType"
+        },
+        {
+            "localName": "forfeitureMethod",
+            "type": "Type",
+            "label": "forfeitureMethod"
+        },
+        {
+            "localName": "yesNoItemType",
+            "type": "Type",
+            "label": "yesNoItemType"
+        },
+        {
+            "localName": "advertisingExpenseMethodItemType",
+            "type": "Type",
+            "label": "advertisingExpenseMethodItemType"
+        }
+    ]
+}

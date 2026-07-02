@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0155/2026": [
+        {
+            "localName": "Dqc_0155",
+            "type": "Concept",
+            "label": "DQC.US.0155 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0155_ExchangeRateEffectInconsistency",
+            "type": "Concept",
+            "label": "DQC.US.0155.Exchange Rate Effect Inconsistency [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

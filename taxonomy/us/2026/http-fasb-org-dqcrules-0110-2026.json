@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0110/2026": [
+        {
+            "localName": "Dqc_0110_MissingBusinessAcquisitionAxisShortPeriod",
+            "type": "Concept",
+            "label": "DQC.US.0110.Missing Business Acquisition Axis (Short Period) [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0110",
+            "type": "Concept",
+            "label": "DQC.US.0110 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}

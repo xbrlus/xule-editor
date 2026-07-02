@@ -1,0 +1,20 @@
+{
+    "http://fasb.org/dqcrules-0107/2026": [
+        {
+            "localName": "Dqc_0107",
+            "type": "Concept",
+            "label": "DQC.US.0107 [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        },
+        {
+            "localName": "Dqc_0107_AcquiredFiniteLivedIntangibleAssetsTextBlock",
+            "type": "Concept",
+            "label": "DQC.US.0107.Acquired Finite Intangible Assets [Abstract]",
+            "isAbstract": "true",
+            "dataType": "xbrli:stringItemType",
+            "periodType": "duration"
+        }
+    ]
+}
