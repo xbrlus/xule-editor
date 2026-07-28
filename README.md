@@ -29,3 +29,19 @@ Once the DQC.code-workspace and .json files are extracted, **open the DQC.code-w
 <div style="text-align:center"><img align=center width="300" src="https://github.com/xbrlus/xule-editor/raw/master/src/problem-xule-editor.png" /> &nbsp; <img align=center width="300" src="https://github.com/xbrlus/xule-editor/raw/master/src/xule-folder-settings.png" /> 
 
 <a href="https://github.com/xbrlus/xule-editor/raw/master/src/problem-xule-editor.png">full size - problem</a> &nbsp; <a href="https://github.com/xbrlus/xule-editor/raw/master/src/xule-folder-settings.png">full size - settings</a></div>
+
+### Codespaces (Python + Arelle + XULE)
+This repository includes a [.devcontainer](.devcontainer) configuration for [GitHub Codespaces](https://github.com/codespaces) (or any Dev Containers-compatible editor) that spins up a ready-to-run XULE development environment, without any manual setup:
+
+  1. Click **Code > Codespaces > Create codespace on master** (or open the repo in a local Dev Container).
+  1. Wait for `postCreateCommand` to finish running `.devcontainer/setup.sh`, which:
+      * Installs Python and [Arelle](https://arelle.org/) with the dependencies XULE and the DQC rules require.
+      * Installs the XULE Arelle plugin (cloned from [xbrlus/xule](https://github.com/xbrlus/xule)) along with the [EDGAR](https://github.com/Arelle/EDGAR) transform and validate plugins.
+      * Downloads the latest [dqc_us_rules release](https://github.com/DataQualityCommittee/dqc_us_rules/releases) into a `dqc_us_rules/` folder at the repo root (resources, source, and taxonomy for the most recent year), reusing this checkout's own `source/us/<year>/.vscode/settings.json` for that folder.
+      * Writes a `.vscode/settings.json` at the repo root with the `xule.autoImports` and `xule.namespaces.definitions` needed by the Xule Editor extension to resolve the downloaded `dqc_us_rules/` content.
+  1. The **Xule Editor** (`XBRLUS.xule`) and **Python** (`ms-python.python`) extensions are installed automatically in the codespace.
+
+Once setup completes, run XULE rules from the terminal with, e.g.:
+```
+python -m arelle.CntlrCmdLine --plugins "xule|EDGAR/transform|EDGAR/validate" [other options]
+```
